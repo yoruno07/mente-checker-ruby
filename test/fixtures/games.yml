@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  account: MyString
+  keywords: MyText
+  eventname: MyString
+  default_flg: false
+
+two:
+  name: MyString
+  account: MyString
+  keywords: MyText
+  eventname: MyString
+  default_flg: false
