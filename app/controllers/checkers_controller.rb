@@ -1,0 +1,2 @@
+class CheckersController < ApplicationController
+end

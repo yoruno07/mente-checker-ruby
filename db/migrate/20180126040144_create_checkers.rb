@@ -1,6 +1,6 @@
-class CreateTweets < ActiveRecord::Migration[5.1]
+class CreateCheckers < ActiveRecord::Migration[5.1]
   def change
-    create_table :tweets do |t|
+    create_table :checkers do |t|
       t.text :content
       t.references :game, foreign_key: true
       t.integer :tweet_id
