@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Game.create(name: 'アズールレーン', account: 'azurlane_staff', keywords: ['メンテナンスのお知らせ','緊急メンテナンス','アップデート'], eventname: 'azure_info', default_flg: true)
