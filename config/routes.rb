@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-    get  '/', to: 'checkers#index'
+    root 'ckeckers#index'
+    resources :ckeckers,     only: [:create]
 end
