@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-    root 'ckeckers#index'
+    root 'checkers#index'
 end
