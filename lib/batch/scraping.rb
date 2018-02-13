@@ -1,18 +1,30 @@
 class Batch::Scraping
   require 'twitter'
 
-  # rails runner Batch::Scraping.getsearch
-  def self.getsearch
+  # rails runner Batch::Scraping.getAllSearch
+  def self.getAllSearch
     client = createClient
+    games = Game.all
 
-    result = client.search("メンテナンス from:azurlane_staff")
-
-    result.take(10).each_with_index do |tw, i|
-      puts "#{i}: @#{tw.user.screen_name}: #{tw.full_text}"
+    games.each do |game|
+      getSearch(client, game)
     end
   end
 
   private
+
+    def self.getSearch(client, game)
+
+      # XXX: 後で検索キーワードのテーブルを設計する
+      search_word = "メンテナンス OR アップデート" + " from:" + game.account
+
+      result = client.search(search_word)
+
+      # テスト用に出力
+      result.take(2).each_with_index do |tw, i|
+        puts "#{i}: @#{tw.user.screen_name}: #{tw.full_text}"
+      end
+    end
 
     def self.createClient
       Twitter::REST::Client.new do |config|
