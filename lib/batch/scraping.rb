@@ -15,9 +15,7 @@ class Batch::Scraping
 
     def self.getSearch(client, game)
 
-      keyword = game.keywords.pluck('word').join(' OR ')
-      search_word = keyword + " from:" + game.account
-
+      search_word = game.getKeywordsToSearch + " from:" + game.account
       result = client.search(search_word)
 
       # テスト用に出力
