@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126040144) do
+ActiveRecord::Schema.define(version: 20180214070455) do
 
   create_table "checkers", force: :cascade do |t|
     t.text "content"
@@ -25,11 +25,18 @@ ActiveRecord::Schema.define(version: 20180126040144) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "account"
-    t.text "keywords"
     t.string "eventname"
     t.boolean "default_flg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.integer "game_id"
+    t.string "word"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_keywords_on_game_id"
   end
 
 end
