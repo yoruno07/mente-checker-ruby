@@ -15,8 +15,8 @@ class Batch::Scraping
 
     def self.getSearch(client, game)
 
-      # XXX: 後で検索キーワードのテーブルを設計する
-      search_word = "メンテナンス OR アップデート" + " from:" + game.account
+      keyword = game.keywords.pluck('word').join(' OR ')
+      search_word = keyword + " from:" + game.account
 
       result = client.search(search_word)
 
