@@ -15,11 +15,12 @@ ActiveRecord::Schema.define(version: 20180214070455) do
   create_table "checkers", force: :cascade do |t|
     t.text "content"
     t.integer "game_id"
-    t.integer "tweet_id"
-    t.date "tweeted_at"
+    t.bigint "tweet_id"
+    t.datetime "tweeted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_checkers_on_game_id"
+    t.index ["tweet_id"], name: "index_checkers_on_tweet_id", unique: true
   end
 
   create_table "games", force: :cascade do |t|

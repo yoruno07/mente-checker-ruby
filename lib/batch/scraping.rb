@@ -16,11 +16,14 @@ class Batch::Scraping
     def self.getSearch(client, game)
 
       search_word = game.getKeywordsToSearch + " from:" + game.account
-      result = client.search(search_word)
+      result = client.search(search_word, {result_type: "recent"})
 
       # テスト用に出力
-      result.take(2).each_with_index do |tw, i|
-        puts "#{i}: @#{tw.user.screen_name}: #{tw.full_text}"
+      result.take(1).each_with_index do |tw, i|
+        checker = game.checkers.find_or_initialize_by(tweet_id: tw.id)
+        checker.content = tw.full_text
+        checker.tweeted_at = tw.created_at
+        checker.save
       end
     end
 
