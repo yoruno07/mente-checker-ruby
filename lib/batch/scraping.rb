@@ -22,7 +22,7 @@ class Batch::Scraping
       result.take(1).each_with_index do |tw, i|
         checker = game.checkers.find_or_initialize_by(tweet_id: tw.id)
         checker.content = tw.full_text
-        # XXX: twitter取得の時刻はUTCなので日本時間に直してからINSERTするようにする
+        # 変更：INSERT時はUTCのままで扱い、表示する際にJSTにする
         checker.tweeted_at = tw.created_at
         checker.save
       end
