@@ -16,10 +16,10 @@ class Batch::Scraping
     def self.getSearch(client, game)
 
       search_word = game.getKeywordsToSearch + " from:" + game.account
-      result = client.search(search_word, {result_type: "recent"})
+      result = client.search(search_word, {result_type: "recent", count: 10})
 
       # テスト用に出力
-      result.take(1).each_with_index do |tw, i|
+      result.each_with_index do |tw, i|
         checker = game.checkers.find_or_initialize_by(tweet_id: tw.id)
         checker.content = tw.full_text
         # 変更：INSERT時はUTCのままで扱い、表示する際にJSTにする
