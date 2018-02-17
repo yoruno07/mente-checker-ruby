@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :keyword do
-    game nil
-    word "MyString"
+  factory :maintenance, :class => Keyword do |keyword|
+    keyword.word "メンテナンスのお知らせ"
+    association :game, factory: :azule
   end
 end
