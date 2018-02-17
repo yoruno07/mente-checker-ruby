@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Keyword, type: :model do
+  let(:azule) { FactoryBot.create(:azule) }
   it "キーワードデータが正常に作成できるかどうか" do
-    keyword = FactoryBot.create(:azule)
-    expect(keyword).to be_valid
+    expect(azule).to be_valid
   end
 end
