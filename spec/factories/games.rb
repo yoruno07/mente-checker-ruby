@@ -5,9 +5,9 @@ FactoryBot.define do
     game.eventname 'azure_info'
     game.default_flg true
 
-    after(:create) do |game|
-      FactoryBot.create(:maintenance, game: game)
-      FactoryBot.create(:emergency, game: game)
+    after(:create) do |azule|
+      FactoryBot.create(:maintenance, game: azule)
+      FactoryBot.create(:emergency, game: azule)
     end
   end
 end
