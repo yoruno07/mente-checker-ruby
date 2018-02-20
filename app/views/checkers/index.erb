@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>メンテチェッカー</title>
-  </head>
-  <body>
-    <div class="container">
-      <% @checkers.each do |c| %>
-        <%= c.content %>
-      <% end %>
-    </div>
-  </body>
+
+<html lang="ja">
+<body>
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">メンテチェッカー</a>
+    </nav>
+  </header>
+  <div class="container">
+  <p id="desc">メンテチェッカー説明文</p>
+    <main role="main">
+      <div class="card-columns">
+          <div class="card">
+            <div class="card-header">
+              <i class="fa fa-times-circle-o fa-lg close-icon" aria-hidden="true"></i>
+              <span class="card-name">#</span>
+              <!-- 新規ウインドウで開くようにする -->
+              <%= link_to image_tag("twitter.png", alt: "twitter", :class => "twitter-icon"), '#' %>
+            </div>
+            <ul class="list-group list-group-flush info-list">
+              <% @games.each do |checker| %>
+                <li><%= checker.content %></li>
+              <% end %>
+              <!-- <li class="list-group-item no-data">データがありません</li> -->
+            </ul>
+          </div>
+          <div class="card empty-card">
+            <i class="fa fa-plus-circle fa-5x add-card-icon" aria-hidden="true" data-toggle="modal" data-target="#add-card-modal"></i>
+          </div>
+        <div class="card empty-card">
+          <i class="fa fa-plus-circle fa-5x add-card-icon" aria-hidden="true" data-toggle="modal" data-target="#add-card-modal"></i>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+</body>
 </html>

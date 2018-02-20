@@ -1,0 +1,60 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* info-list styles
+-------------------------------------------------- */
+div.card {
+   width: 20rem;
+   margin: 2rem 0;
+   cursor : move;
+}
+
+img.twitter-icon {
+  float: right;
+  width: 25px;
+  height: 25px;
+}
+
+ul.info-list > li {
+  font-size: 80%;
+}
+
+ul.info-list > li.no-data {
+  font-size: 90%;
+  color: #b22222;
+}
+
+div.empty-card {
+  width: 20rem;
+  height: 25rem;
+}
+
+i.add-card-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+i.close-icon {
+    position: absolute;
+    top: 0.4em;
+    left: 0.3em;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+span.card-name {
+    margin-left: 0.8em;
+}
+
+option:disabled {
+    background: #ddd;
+}
+
+a.card-link {
+    color: #438dc4;
+}

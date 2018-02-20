@@ -1,5 +1,5 @@
 class CheckersController < ApplicationController
   def index
-    @checkers = Checker.all
+    @games = Game.find_by(name: "アズールレーン").checkers
   end
 end
