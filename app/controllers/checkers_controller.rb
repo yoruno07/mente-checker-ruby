@@ -1,5 +1,5 @@
 class CheckersController < ApplicationController
   def index
-    @games = Game.all
+    @checkers = Checker.all
   end
 end
